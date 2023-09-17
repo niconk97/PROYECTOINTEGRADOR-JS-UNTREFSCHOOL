@@ -6,7 +6,7 @@ const libros = [
         "generoLibro": "Fantasía",
         "fechaPublicacion": "1997-06-26",
         "precio": 19.99,
-        "imagenURL": "https://ejemplo.com/imagen/harry_potter.jpg"
+        "imagenURL": "images/HP piedra filosofal.jpg"
     },
     {
         "id": 2,
@@ -15,7 +15,7 @@ const libros = [
         "generoLibro": "Ciencia Ficción",
         "fechaPublicacion": "1949-06-08",
         "precio": 15.95,
-        "imagenURL": "https://ejemplo.com/imagen/1984.jpg"
+        "imagenURL": "images/1984 - GO.jpg"
     },
     {
         "id": 3,
@@ -24,7 +24,7 @@ const libros = [
         "generoLibro": "Ficción Clásica",
         "fechaPublicacion": "1960-07-11",
         "precio": 17.50,
-        "imagenURL": "https://ejemplo.com/imagen/matar_a_un_ruisenor.jpg"
+        "imagenURL": "images/matar a un ruiseñor.jpg"
     },
     {
         "id": 4,
@@ -33,7 +33,7 @@ const libros = [
         "generoLibro": "Realismo Mágico",
         "fechaPublicacion": "1967-05-30",
         "precio": 21.99,
-        "imagenURL": "https://ejemplo.com/imagen/cien_anos_de_soledad.jpg"
+        "imagenURL": "images/cien años de soledad.jpg"
     },
     {
         "id": 5,
@@ -42,7 +42,7 @@ const libros = [
         "generoLibro": "Misterio",
         "fechaPublicacion": "1934-01-01",
         "precio": 14.75,
-        "imagenURL": "https://ejemplo.com/imagen/asesinato_en_el_orient_express.jpg"
+        "imagenURL": "images/asesinato en el orient express.jpg"
     },
     {
         "id": 6,
@@ -51,7 +51,7 @@ const libros = [
         "generoLibro": "Fantasía",
         "fechaPublicacion": "1954-07-29",
         "precio": 25.00,
-        "imagenURL": "https://ejemplo.com/imagen/el_senor_de_los_anillos.jpg"
+        "imagenURL": "images/LOTR.jpg"
     },
     {
         "id": 7,
@@ -60,7 +60,7 @@ const libros = [
         "generoLibro": "Novela Romántica",
         "fechaPublicacion": "1813-01-28",
         "precio": 12.99,
-        "imagenURL": "https://ejemplo.com/imagen/orgullo_y_prejuicio.jpg"
+        "imagenURL": "images/orgullo y prejuicio.jpg"
     },
     {
         "id": 8,
@@ -69,7 +69,7 @@ const libros = [
         "generoLibro": "Terror",
         "fechaPublicacion": "1986-09-15",
         "precio": 18.50,
-        "imagenURL": "https://ejemplo.com/imagen/it.jpg"
+        "imagenURL": "images/IT.jpg"
     },
     {
         "id": 9,
@@ -78,7 +78,7 @@ const libros = [
         "generoLibro": "Ficción Clásica",
         "fechaPublicacion": "1925-04-10",
         "precio": 16.75,
-        "imagenURL": "https://ejemplo.com/imagen/el_gran_gatsby.jpg"
+        "imagenURL": "images/el gran gatsby.jpg"
     },
     {
         "id": 10,
@@ -87,7 +87,7 @@ const libros = [
         "generoLibro": "Aventuras",
         "fechaPublicacion": "1876-12-01",
         "precio": 14.99,
-        "imagenURL": "https://ejemplo.com/imagen/las_aventuras_de_tom_sawyer.jpg"
+        "imagenURL": "images/tom sawyer.jpg"
     }
 ]
 
@@ -99,6 +99,28 @@ function agregarProducto() {
         nuevoElemento.textContent = `Libro ID: ${l.id} Nombre ${l.nombreLibro}`;
         listadoProductos.appendChild(nuevoElemento);
     })
-  }
+ }
 
-agregarProducto()
+let contenedorTarjetas = document.getElementsByClassName("contenedorPropuesta").item(0);
+
+function agregarTarjetasProductos() {
+
+    libros.forEach(libro => {
+        const tarjetaProducto = document.createElement("div");
+        tarjetaProducto.classList.add("card");
+        tarjetaProducto.style.width = "16rem";
+
+        tarjetaProducto.innerHTML = `
+            <img src="${libro.imagenURL}" class="card-img-top" alt="Portada del libro">
+            <div class="card-body">
+                <h5 class="card-text">${libro.nombreLibro}</h5>
+                <p class="card-text">Autor: ${libro.autor}</p>
+                <a href="#" class="btn btn-primary btn-colores">Más detalle</a>
+            </div>
+        `;
+
+        contenedorTarjetas.appendChild(tarjetaProducto);
+    })
+}
+
+agregarTarjetasProductos()

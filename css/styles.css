@@ -132,6 +132,19 @@ nav ul li a:hover {
     color: #EFF5F5;
   }
 
+.btn-colores {
+  background-color: white;
+  color: #00425A;
+  border-color: #00425A;
+  transition: background-color 0.3s ease;
+}
+
+.btn-colores:hover {
+  background-color: #bcbbbb;
+  color: #01222e;
+  border-color: #01222e;
+}
+
 
 /* Fin estilo para cards */
 .tituloProductos {
